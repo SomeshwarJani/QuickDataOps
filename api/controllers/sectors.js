@@ -7,7 +7,10 @@ export const getSectors = (req, res) => {
     if (error) return res.status(500).json(error);
     // res.set("Access-Control-Allow-Origin", "*");
     const token = jwt.sign({ id: data[0].id }, "secretKey");
-    res.set("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.set(
+      "Access-Control-Allow-Origin",
+      "https://user-data-task-server.vercel.app/"
+    );
     res
       .cookie("accessToken", token, {
         httpOnly: true,
