@@ -187,7 +187,8 @@ const UserForm: React.FC = () => {
     <div className="user-form">
       <form onSubmit={(e: any) => onFormSubmit(e)} id="form-area">
         <label className="heading-label">
-          Please enter your name and select your sector
+          Please enter your name and pick the Sectors you are currently involved
+          in.
         </label>
         <br />
         <br />
