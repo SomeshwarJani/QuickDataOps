@@ -26,13 +26,6 @@ const app = Express();
 // });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use("/api", sectorRoute);
-app.use("/api", userDetails);
-app.use("/api", editUser);
-app.use("/api", insertData);
-app.use("/api", updateData);
-app.use("/api", deleteData);
 app.use(
   cors({
     origin: "https://user-data-task-clients.vercel.app",
@@ -40,6 +33,13 @@ app.use(
     optionSuccessStatus: 200,
   })
 );
+
+app.use("/api", sectorRoute);
+app.use("/api", userDetails);
+app.use("/api", editUser);
+app.use("/api", insertData);
+app.use("/api", updateData);
+app.use("/api", deleteData);
 
 app.use(cookieParser());
 

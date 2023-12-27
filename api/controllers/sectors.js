@@ -9,7 +9,7 @@ export const getSectors = (req, res) => {
     const token = jwt.sign({ id: data[0].id }, "secretKey");
     res.set(
       "Access-Control-Allow-Origin",
-      "https://user-data-task-server.vercel.app/"
+      "https://user-data-task-server.vercel.app"
     );
     res
       .cookie("accessToken", token, {
