@@ -4,14 +4,12 @@ import Table from "react-bootstrap/Table";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./table.scss";
-import Loader from "../Spinner/Loader";
 import { erroHandler, findChildNameById } from "../../utils/helper";
 import { STATICSTRINGS, APIS } from "../../constants";
 import { MESSAGES } from "../../messages";
 
 const TabularView: React.FC = () => {
   const [userData, setUserData] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   let navigate = useNavigate();
   let location = useLocation();
 
@@ -28,9 +26,7 @@ const TabularView: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
       await fetchUserData();
-      setIsLoading(false);
     })();
   }, []);
 
@@ -50,18 +46,15 @@ const TabularView: React.FC = () => {
   };
 
   const onDeleteClicked = async (e: any, id: number) => {
-    setIsLoading(true);
     await axios
       .delete(`${APIS.DELETEDATA}${id}`)
       .then(() => {
-        setIsLoading(false);
         toast.success(MESSAGES.deleteMsg, {
           position: toast.POSITION.TOP_RIGHT,
         });
         fetchUserData();
       })
       .catch((error) => {
-        setIsLoading(false);
         erroHandler(error);
       });
   };
@@ -104,30 +97,26 @@ const TabularView: React.FC = () => {
       </Table>
     );
   }
+  window.onload = () => {
+    navigate("/user-data");
+  };
 
   return (
     <div className="table-container">
-      {isLoading ? (
-        <Loader />
+      <button
+        type="button"
+        className="btn btn-primary btn-sm"
+        onClick={(e: any) => navigate("/")}
+      >
+        HomePage
+      </button>
+      {userData.length ? (
+        StripedColumnsExample()
       ) : (
-        <>
-          <button
-            type="button"
-            className="btn btn-primary btn-sm"
-            onClick={(e: any) => navigate("/")}
-          >
-            HomePage
-          </button>
-          {userData.length ? (
-            StripedColumnsExample()
-          ) : (
-            <div className="no-data">
-              <label>No Data Available</label>
-            </div>
-          )}
-        </>
+        <div className="no-data">
+          <label>No Data Available</label>
+        </div>
       )}
-
       <ToastContainer />
     </div>
   );
