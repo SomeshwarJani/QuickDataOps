@@ -13,6 +13,7 @@ import {
 import { STATICSTRINGS, APIS } from "../../constants";
 import { MESSAGES } from "../../messages";
 import Sector from "./Sector";
+import Loader from "../Spinner/Loader";
 
 interface SelectedRowData {
   id: number;
@@ -27,6 +28,7 @@ const UserForm: React.FC = () => {
     useState<SelectedRowData | null>(null);
   const [nameField, setNameField] = useState<string>("");
   const [selectedNode, setSelectedNode] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const hasSelectedRowData = Boolean(editModeSelectedRowData);
@@ -36,7 +38,9 @@ const UserForm: React.FC = () => {
   const isEditMode = Boolean(selectedRowId);
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       await fetchSectors();
+      setIsLoading(false);
     })();
   }, []);
 
@@ -60,6 +64,7 @@ const UserForm: React.FC = () => {
   };
   const fetchSelectedData = async () => {
     if (hasSelectedRowData) return;
+    setIsLoading(true);
     const response = await axios.get(
       `${APIS.FETCH_SELECTED_ROW_DATA}${selectedRowId}`
     );
@@ -75,8 +80,10 @@ const UserForm: React.FC = () => {
         setSelectedNode(getEditModeData?.sector);
         setEditModeSelectedRowData(responseData);
         setNameField(responseData?.name);
+        setIsLoading(false);
       }
     } else {
+      setIsLoading(false); // before toaster we need to stop loading
       toast.error(MESSAGES.errorMessage, {
         position: toast.POSITION.TOP_LEFT,
       });
@@ -153,11 +160,13 @@ const UserForm: React.FC = () => {
       });
   };
   const setDataToDb = async () => {
+    setIsLoading(true);
     if (isEditMode) {
       await updateDataToDb();
     } else {
       await insertDataToDb();
     }
+    setIsLoading(false);
   };
   const clearForm = async (termBoxElement: any) => {
     setNameField("");
@@ -186,45 +195,55 @@ const UserForm: React.FC = () => {
   };
   return (
     <div className="user-form">
-      <form onSubmit={(e: any) => onFormSubmit(e)} id="form-area">
-        <label className="heading-label">
-          Please enter your name and pick the Sectors you are currently involved
-          in.
-        </label>
-        <br />
-        <br />
-        <label htmlFor="username">
-          Name<span>*</span>:
-        </label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          onChange={(e: any) => onInputChange(e)}
-          value={nameField}
-        />
-        <br />
-        <br />
-        <label htmlFor="sectors">
-          Sectors<span>*</span>:
-        </label>
-        <Sector data={sectors} fetchSelectedSectors={fetchSelectedSectors} />
-        <br />
-        <div className="term-box">
-          <input type="checkbox" name="term-box" id="term-box" />
-          <label htmlFor="term-box"> Agree to terms</label>
-          <br />
-          <br />
-        </div>
-        <input type="submit" value={isEditMode ? "Update" : "Save"}></input>
-        <input
-          type="button"
-          value="Move to User Data"
-          onClick={(e: any) => {
-            navigate("/user-data", { state: { sectors } });
-          }}
-        ></input>
-      </form>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <form onSubmit={(e: any) => onFormSubmit(e)} id="form-area">
+            <label className="heading-label">
+              Please enter your name and pick the Sectors you are currently
+              involved in.
+            </label>
+            <br />
+            <br />
+            <label htmlFor="username">
+              Name<span>*</span>:
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={(e: any) => onInputChange(e)}
+              value={nameField}
+            />
+            <br />
+            <br />
+            <label htmlFor="sectors">
+              Sectors<span>*</span>:
+            </label>
+            <Sector
+              data={sectors}
+              fetchSelectedSectors={fetchSelectedSectors}
+            />
+            <br />
+            <div className="term-box">
+              <input type="checkbox" name="term-box" id="term-box" />
+              <label htmlFor="term-box"> Agree to terms</label>
+              <br />
+              <br />
+            </div>
+            <input type="submit" value={isEditMode ? "Update" : "Save"}></input>
+            <input
+              type="button"
+              value="Move to User Data"
+              onClick={(e: any) => {
+                navigate("/user-data", { state: { sectors } });
+              }}
+            ></input>
+          </form>
+        </>
+      )}
+
       <ToastContainer />
     </div>
   );
