@@ -7,11 +7,14 @@ export enum STATICSTRINGS {
   IDSTRING = "/?id=",
   ID = "id",
 }
+enum baseURL {
+  url = "https://user-data-task-clients.vercel.app/",
+}
 export enum APIS {
-  FETCHSECTORS = "https://user-data-task-server.vercel.app/api/sectors",
-  FETCH_SELECTED_ROW_DATA = "http://localhost:8800/api/edit/",
-  SUBMITFORM = "http://localhost:8800/api/submit",
-  UPDATEDATA = "http://localhost:8800/api/update",
-  DELETEDATA = "http://localhost:8800/api/delete/",
-  FETCHUSERDATA = "http://localhost:8800/api/userdata",
+  FETCHSECTORS = `${baseURL.url}api/sectors`,
+  FETCH_SELECTED_ROW_DATA = `${baseURL.url}api/edit/`,
+  SUBMITFORM = `${baseURL.url}api/submit`,
+  UPDATEDATA = `${baseURL.url}api/update`,
+  DELETEDATA = `${baseURL.url}api/delete/`,
+  FETCHUSERDATA = `${baseURL.url}api/userdata`,
 }

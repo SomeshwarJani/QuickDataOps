@@ -6,7 +6,10 @@ export const getSectors = (req, res) => {
     "SELECT id,sector_name as label, value, parentId FROM sector_detail";
   connection.query(q, (error, data) => {
     if (error) return res.status(500).json(error);
-    res.set("Access-Control-Allow-Origin", "*");
+    res.set(
+      "Access-Control-Allow-Origin",
+      "https://user-data-task-clients.vercel.app"
+    );
     const token = jwt.sign({ id: data[0].id }, "secretKey");
     // res.set(
     //   "Access-Control-Allow-Origin",
