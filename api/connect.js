@@ -10,13 +10,20 @@ const DATABASE_CONNECT = {
   queueLimit: 0,
 };
 
-export const connection = mysql.createPool(DATABASE_CONNECT);
+const conenction = mysql.createPool(DATABASE_CONNECT);
 
-connection.getConnection(function (err, connection) {
+conenction.getConnection((err, connection) => {
   if (err) {
-    connection.release();
-    console.log(" Error getting mysql_pool connection: " + err);
+    console.error("Error getting MySQL connection:", err);
     throw err;
   }
+
   console.log("Database connected");
+
+  // Perform any necessary operations with the 'connection' object
+
+  // Release the connection back to the pool when done
+  connection.release();
 });
+
+export default conenction;
