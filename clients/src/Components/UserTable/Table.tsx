@@ -97,10 +97,6 @@ const TabularView: React.FC = () => {
       </Table>
     );
   }
-  window.onload = () => {
-    navigate("/user-data");
-  };
-
   return (
     <div className="table-container">
       <button
