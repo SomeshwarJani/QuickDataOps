@@ -2,7 +2,7 @@ import { connection } from "../connect.js";
 import jwt from "jsonwebtoken";
 
 export const getSectors = (req, res) => {
-  const q = `SELECT id,sector_name as label, value, parentId FROM 'bxka49jlb5vqk7bsekub'.'sector_detail'`;
+  const q = `SELECT id,sector_name as label, value, parentId FROM 'sector_detail'`;
   connection.query(q, (error, data) => {
     if (error) return res.status(500).json(error);
     res.set("Access-Control-Allow-Origin", "*");
