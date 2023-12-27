@@ -11,10 +11,10 @@ enum baseURL {
   url = "https://user-data-task-clients.vercel.app/",
 }
 export enum APIS {
-  FETCHSECTORS = "https://user-data-task-clients.vercel.app/api/sectors",
-  FETCH_SELECTED_ROW_DATA = "https://user-data-task-clients.vercel.app/api/edit",
-  SUBMITFORM = `https://user-data-task-clients.vercel.app/api/submit`,
-  UPDATEDATA = "https://user-data-task-clients.vercel.app/api/update",
-  DELETEDATA = "https://user-data-task-clients.vercel.app/api/delete",
-  FETCHUSERDATA = "https://user-data-task-clients.vercel.app/api/userdata",
+  FETCHSECTORS = "https://user-data-task-server.vercel.app/api/sectors",
+  FETCH_SELECTED_ROW_DATA = "https://user-data-task-server.vercel.app/api/edit",
+  SUBMITFORM = `https://user-data-task-server.vercel.app/api/submit`,
+  UPDATEDATA = "https://user-data-task-server.vercel.app/api/update",
+  DELETEDATA = "https://user-data-task-server.vercel.app/api/delete",
+  FETCHUSERDATA = "https://user-data-task-server.vercel.app/api/userdata",
 }
