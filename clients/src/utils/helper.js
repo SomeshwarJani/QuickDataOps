@@ -77,11 +77,11 @@ export const erroHandler = (error) => {
       position: toast.POSITION.TOP_RIGHT,
     });
     console.error("Request error:", error.request);
-  } else if (error.request) {
+  } else if (error.message) {
     toast.error(MESSAGES.errorMessage, {
       position: toast.POSITION.TOP_RIGHT,
     });
-    console.error(MESSAGES.noResponseMsg, error.request);
+    console.error(MESSAGES.noResponseMsg, error.message);
   } else {
     console.error(MESSAGES.errorSettingMsg, error.message);
     toast.error(error.message, {

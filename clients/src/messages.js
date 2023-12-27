@@ -8,4 +8,5 @@ export const MESSAGES = {
   errorSettingMsg: "Error setting up the request:",
   updateMsg: "Your data has been updated.",
   deleteMsg: "Your data has been deleted",
+  initialErrorMsg: "Something went wrong. Please try again later.",
 };

@@ -48,6 +48,7 @@ const UserForm: React.FC = () => {
 
   const fetchSectors = async () => {
     const response = await axios.get(APIS.FETCHSECTORS);
+
     if (response.status === 200) {
       const formattedResponse = buildHierarchy(response?.data);
       setSectors(formattedResponse);
