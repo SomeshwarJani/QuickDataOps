@@ -107,7 +107,13 @@ const TabularView: React.FC = () => {
       >
         HomePage
       </button>
-      {userData.length ? StripedColumnsExample() : <div>No Data Available</div>}
+      {userData.length ? (
+        StripedColumnsExample()
+      ) : (
+        <div className="no-data">
+          <label>No Data Available</label>
+        </div>
+      )}
       <ToastContainer />
     </div>
   );

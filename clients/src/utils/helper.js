@@ -76,6 +76,7 @@ export const erroHandler = (error) => {
     toast.error(error.response?.data?.message, {
       position: toast.POSITION.TOP_RIGHT,
     });
+    console.error("Request error:", error.request);
   } else if (error.request) {
     toast.error(MESSAGES.errorMessage, {
       position: toast.POSITION.TOP_RIGHT,
