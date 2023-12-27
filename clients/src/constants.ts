@@ -8,7 +8,7 @@ export enum STATICSTRINGS {
   ID = "id",
 }
 export enum APIS {
-  FETCHSECTORS = "http://localhost:8800/api/sectors",
+  FETCHSECTORS = "https://user-data-task-server.vercel.app/api/sectors",
   FETCH_SELECTED_ROW_DATA = "http://localhost:8800/api/edit/",
   SUBMITFORM = "http://localhost:8800/api/submit",
   UPDATEDATA = "http://localhost:8800/api/update",
