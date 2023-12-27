@@ -97,6 +97,9 @@ const TabularView: React.FC = () => {
       </Table>
     );
   }
+  window.onload = () => {
+    navigate("/");
+  };
 
   return (
     <div className="table-container">
