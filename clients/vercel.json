@@ -1,7 +1,3 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/", "dest": "/" },
-    { "src": "/user-data", "dest": "/" }
-  ]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
