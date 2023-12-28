@@ -1,7 +1,7 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/[^.]+", "dest": "/", "status": 200 },
-    { "src": "/user-data", "dest": "/", "status": 200 }
+    { "src": "/", "dest": "/" },
+    { "src": "/user-data", "dest": "/" }
   ]
 }
