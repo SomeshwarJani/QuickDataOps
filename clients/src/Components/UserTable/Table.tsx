@@ -98,7 +98,7 @@ const TabularView: React.FC = () => {
     );
   }
   window.onload = () => {
-    navigate("/");
+    navigate("/user-data");
   };
 
   return (
