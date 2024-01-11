@@ -10,18 +10,10 @@
     "@types/node": "^16.18.68",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-<<<<<<< HEAD:package.json
-<<<<<<< HEAD:clients/package.json
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.12.5",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
-=======
->>>>>>> parent of bea97c1 (Include all files):package.json
-=======
->>>>>>> parent of bea97c1 (Include all files):clients/package.json
-=======
->>>>>>> parent of a6d2887 (Revert "Revert "Include all files with well managed code""):package.json
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
@@ -33,15 +25,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-<<<<<<< HEAD:package.json
-<<<<<<< HEAD:clients/package.json
   "proxy": "https://user-data-task-server.vercel.app/",
-=======
->>>>>>> parent of bea97c1 (Include all files):package.json
-=======
->>>>>>> parent of bea97c1 (Include all files):clients/package.json
-=======
->>>>>>> parent of a6d2887 (Revert "Revert "Include all files with well managed code""):package.json
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
