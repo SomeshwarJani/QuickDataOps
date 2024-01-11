@@ -98,11 +98,7 @@ const TabularView: React.FC = () => {
     );
   }
   window.onload = () => {
-<<<<<<< HEAD
-    navigate("/");
-=======
     navigate("/user-data");
->>>>>>> parent of de563ec (New commit with good coding standard)
   };
 
   return (
