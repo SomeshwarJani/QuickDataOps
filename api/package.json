@@ -19,5 +19,5 @@
     "nodemon": "^3.0.2"
   },
   "type": "module",
-  "proxy": "https://user-data-task-clients.vercel.app"
+  "proxy": "https://quickdataops.vercel.app"
 }

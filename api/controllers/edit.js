@@ -10,10 +10,7 @@ export const editData = (req, res) => {
       return res.status(404).json({ message: "Data not found" });
     }
     const token = jwt.sign({ id: data[0].id }, "secretKey");
-    res.set(
-      "Access-Control-Allow-Origin",
-      "https://user-data-task-clients.vercel.app"
-    );
+    res.set("Access-Control-Allow-Origin", "https://quickdataops.vercel.app");
     res
       .cookie("accessToken", token, {
         httpOnly: true,

@@ -12,10 +12,7 @@ import deleteData from "./routes/delete.js";
 const app = Express();
 //middlewares
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://user-data-task-clients.vercel.app"
-  );
+  res.header("Access-Control-Allow-Origin", "https://quickdataops.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "POST");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -28,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://user-data-task-clients.vercel.app",
+    origin: "https://quickdataops.vercel.app",
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
