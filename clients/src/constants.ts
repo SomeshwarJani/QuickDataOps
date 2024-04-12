@@ -8,10 +8,10 @@ export enum STATICSTRINGS {
   ID = "id",
 }
 export enum APIS {
-  FETCHSECTORS = "https://user-data-task-server.vercel.app/api/sectors",
-  FETCH_SELECTED_ROW_DATA = "https://user-data-task-server.vercel.app/api/edit/",
-  SUBMITFORM = `https://user-data-task-server.vercel.app/api/submit`,
-  UPDATEDATA = "https://user-data-task-server.vercel.app/api/update",
-  DELETEDATA = "https://user-data-task-server.vercel.app/api/delete/",
-  FETCHUSERDATA = "https://user-data-task-server.vercel.app/api/userdata",
+  FETCHSECTORS = "https://quickdataopsserver.vercel.app/api/sectors",
+  FETCH_SELECTED_ROW_DATA = "https://quickdataopsserver.vercel.app/api/edit/",
+  SUBMITFORM = `https://quickdataopsserver.vercel.app/api/submit`,
+  UPDATEDATA = "https://quickdataopsserver.vercel.app/api/update",
+  DELETEDATA = "https://quickdataopsserver.vercel.app/api/delete/",
+  FETCHUSERDATA = "https://quickdataopsserver.vercel.app/api/userdata",
 }
